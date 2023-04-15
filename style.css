@@ -1,0 +1,632 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+:root{
+    --premiereCouleur:black;
+    --deuxiemeCouleur:white;
+    --fontFamily:'Pacifico', cursive;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    position:relative;
+    font-family:Arial, Helvetica, sans-serif;
+    /* background-color:rgb(220, 149, 42); */
+
+    /* transition:background-color 0.8s; */
+}
+
+/* .bodyActive{
+    background-color:rgb(220, 149, 42);
+} */
+
+nav{
+    background-color: rgb(221 164 80);
+    
+    transform:translateY(-100%);
+    transition:transform 0.5s;
+    transition-delay:0.8s;
+    z-index:1;
+    position:relative;
+   
+    
+    
+}
+
+.navActive{
+    transform:translateY(0%)
+  
+    
+}
+
+nav ul{
+    display:flex;
+    list-style-type:none;
+    justify-content:space-evenly;
+    padding:20px 0;
+    
+   
+    
+}
+
+nav ul li{
+   
+    cursor:pointer;
+}
+
+nav ul li a{
+    font-size:calc(12px + 1vw);
+    text-decoration:none;
+    color:var(--premiereCouleur);
+    position:relative;
+}
+
+ul li a:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0%;
+    width:100%;
+    height:100%;
+    transform:scaleX(0);
+    border-bottom:2px solid var(--premiereCouleur);
+    transition:transform 0.5s
+  
+ }
+
+ .menuHamberger{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:35px;
+    /* height:16px; */
+    height:24px;
+    display:none;
+    cursor:pointer;
+   
+ }
+
+.menuHamberger span{
+  transition:transform 0.8s;
+} 
+
+ .menuHambergerActive span:nth-child(1){
+    transform:translateY(8px) rotate(45deg);
+   
+ }
+
+ .menuHambergerActive span:nth-child(2){
+  transform: rotate(-45deg);
+  
+ }
+
+ .menuHambergerActive span:nth-child(3){
+  display:none;
+  
+}
+ 
+
+ .menuHamberger span:nth-child(1){
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:4px;
+      background-color:var(--premiereCouleur)
+    
+
+ }
+
+ .menuHamberger span:nth-child(2){
+    position:absolute;
+    top:8px;
+    left:0;
+    width:100%;
+    height:4px;
+    background-color:var(--premiereCouleur);
+ }
+
+ .menuHamberger span:nth-child(3){
+    position:absolute;
+    top:16px;
+    left:0;
+    width:100%;
+    height:4px;
+    background-color:var(--premiereCouleur);
+ }
+ 
+ li:hover  a:before{
+ 
+    transform:scaleX(1)
+    
+ }
+
+ header{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background-image:url('img/fondEcran2.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    
+    opacity:0.7;
+    animation-name:backgroundQuiBougent;
+    animation-duration:12s;
+    background-position:0% 0%;
+    animation-iteration-count: infinite;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+    transform:translateX(0%);
+    transition:transform 0.8s;
+    
+    
+ }
+
+ .headerActive{
+    transform:translateX(-100%);
+ }
+
+ @keyframes backgroundQuiBougent{
+    0%{
+        background-position:0% 0%;
+       
+    }
+    100%{
+        background-position:100% 100%;
+        
+    }
+ }
+
+ .fa-solid{
+    position:absolute;
+    top:50%;
+    right:10%;
+    color:white;
+    font-size:calc(40px + 2vw);
+    transform:translateY(-50%);
+    cursor:pointer;
+    transition:color 0.8s
+ }
+
+.fa-solid:hover{
+  color:rgb(223, 146, 32);
+}
+
+ h1{
+    text-align:center;
+    height:100%;
+    
+    color:var(--deuxiemeCouleur);
+    font-family:var(--fontFamily);
+    font-size:calc(36px + 2vw);
+    padding-top:20px;
+ }
+
+ .paragrapheHeader{
+    position:absolute;
+    top:30%;
+    
+    left:0;
+    width:100%;
+    /* height:100%; */
+    color:white;
+    font-family:var(--fontFamily);
+    font-size:calc(12px + 1vw);
+    text-align:center;
+ }
+
+.mainPremier{
+    height:calc(100vh - 20px);
+    width:100%;
+}
+
+.mainPrincipal {
+    height:100%;
+   
+    z-index:-1;
+    /* background-color:transparent; */
+    background-color:rgb(223, 146, 32) ;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    display:none;
+    overflow:hidden;
+    transform:translateX(-100%)
+    /* transform:translateX(-100%); */
+    /* clip-path: polygon(35% 44%, 56% 42%, 57% 58%, 32% 57%); */
+    /* transition:clip-path 0.8s; */
+    /* transition:background-color 0.5s; */
+    /* transition-delay:0.8s */
+   
+    
+   
+    
+ } 
+
+
+ .mainPrincipalActive{
+    display:flex;
+    animation-name:animationClipPath;
+    animation-duration:2s;
+    animation-timing-function: linear;
+    transform:translateX(0);
+    padding-bottom:100px;
+    /* animation-delay:0.8s; */
+   
+    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
+    /* transform:translateX(0); */
+    /* background-color:rgba(223, 146, 32) ; */
+   
+  }
+ 
+  @keyframes animationClipPath{
+     0%{
+         clip-path: polygon(35% 44%, 56% 42%, 57% 58%, 32% 57%);
+     }
+ 
+     25%{
+         clip-path: polygon(21% 31%, 75% 31%, 78% 80%, 31% 80%);
+ 
+     }
+ 
+     50%{
+         clip-path: polygon(14% 13%, 83% 18%, 86% 88%, 8% 91%);
+ 
+     }
+ 
+     75%{
+         clip-path: polygon(11% 7%, 87% 9%, 91% 93%, 4% 94%);
+ 
+     }
+ 
+     100%{
+         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+ 
+     }
+  }
+ 
+ 
+ 
+  .paragrapheMain{
+     /* display:block; */
+     align-items: center;
+     color:var(--premiereCouleur);
+     /* height:100%; */
+     font-size:calc(12px + 2vw);
+     font-family:var(--fontFamily);
+     width:500px;
+     text-align:center;
+     transform:translateX(-100%);
+     padding:5%;
+ 
+  }
+ 
+  .pActive{
+     transform:translateX(0)
+  }
+
+  .quiSuisJe{
+    display:none;
+    height:100%;
+    
+  }
+
+  /* .quiSuisJe h2{
+    font-size:calc(12px + 2vw);
+    font-family: var(--fontFamily);
+    color:var(--premiereCouleur)
+  } */
+
+
+
+  .mainPrincipalActiveQuiSuisJe{
+    display:flex;
+    flex-direction:column;
+    background-color:rgb(211 197 80) ;
+    animation-name:animationBackground;
+    animation-duration:2s;
+    animation-fill-mode:forwards;
+    justify-content: space-evenly;
+    align-items:center;
+
+   
+ 
+  }
+
+  /* .quiSuisJe2{
+    display:flex;
+    justify-content: space-evenly;
+   
+   
+    text-align:center;
+  } */
+
+  @keyframes animationBackground{
+        0%{
+            opacity:0;
+        }
+
+        100%{
+            opacity:1;
+        }
+  }
+ 
+
+  .mainPrincipalActiveQuiSuisJe p{
+    width:60%;
+    font-size:calc(12px + 1vw);
+    transform:scale(0);
+    transition:transform 0.5s;
+    animation-name:mainPrincipalActiveQuiSuisJeP;
+    animation-duration:0.8s;
+    animation-timing-function:linear;
+    animation-fill-mode: forwards;
+    
+  }
+
+
+  @keyframes mainPrincipalActiveQuiSuisJeP{
+    0%{
+        transform:scale(0);
+    }
+
+    100%{
+        transform:scale(1)
+    }
+  }
+
+  .quiSuisJePhoto{
+    width:200px;
+    height:200px;
+    object-fit: cover;
+    border-radius:50%;
+   
+    transform:translateX(100%) scale(0.2);
+    animation-name:animationPhoto;
+    animation-duration:1.2s;
+    animation-timing-function:linear;
+    animation-fill-mode: forwards;
+   
+  }
+
+  @keyframes animationPhoto{
+    0%{
+        transform:translateX(100%) scale(0.2);
+    }
+    50%{
+        transform:translateX(0) scale(0.2) ;
+    }
+
+    100%{
+        transform:translateX(0) scale(1)
+    }
+  }
+
+
+  .mainContact{
+    display:none;
+  }
+
+  .mainContactActive{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    /* background-color:#ff6a00; */
+    background:linear-gradient(to right,#ff6a00,rgb(211 197 80));
+    background-size:400% 400%;
+    width:100%;
+    animation:backgroundAnimationContact;
+    animation-duration:5s;
+    animation-timing-function: linear;
+    animation-iteration-count:infinite;
+    
+  }
+
+  @keyframes backgroundAnimationContact{
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+  }
+
+  .mainContactActive h2{
+    font-family: var(--fontFamily);
+    font-size:calc(36px + 2vw);
+    text-align: center;
+    animation-name:animationH2Contact;
+    animation-duration:0.8s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes animationH2Contact{
+    0%{
+        transform:scale(0);
+    }
+
+    100%{
+        transform:scale(1)
+    }
+  }
+
+  .mainContactActive p{
+    text-align:center;
+    animation-name:animationH2Contact;
+    animation-duration:0.8s;
+    animation-fill-mode: forwards;
+    animation-delay:0.2s;
+  }
+
+  .mesCompetencesMesQualites{
+    display:none;
+  }
+
+  .mesCompetencesMesQualitesActive{
+    display:flex;
+    height:100%;
+    color:var(--premiereCouleur);
+    background-color:#a56930;
+    justify-content: space-between;
+    padding:0 10%;
+  }
+
+  .mesCompetencesMesQualitesActive ul{
+    list-style-type:disclosure-closed;
+
+  }
+
+  .mesCompetencesMesQualitesActive ul li {
+    font-size:calc(12px + 1vw);
+   
+  }
+
+  .mesCompetencesMesQualitesActive ul li{
+    animation-name:mesCompetencesMesQualitesActiveUlLI;
+    animation-duration:2s;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+
+    
+  }
+
+ 
+
+  .mesCompetencesMesQualitesActive h2{
+        font-family:var(--fontFamily);
+        color:var(--deuxiemeCouleur);
+        font-size:calc(12px + 2vw);
+        animation-name:mesCompetencesMesQualitesActiveH2;
+        animation-duration:0.8s;
+        animation-timing-function:linear;
+        animation-fill-mode:forwards
+  }
+
+  .mesCompetencesMesQualitesActive h2{
+    padding-bottom:20px;
+  }
+
+  .mesCompetencesMesQualitesActive .mesQualites{
+    padding-left:5%;
+  }
+
+  .mesCompetencesMesQualitesActive .mesCompetences{
+    padding-right:5%;
+  }
+
+
+  @keyframes mesCompetencesMesQualitesActiveH2{
+    0%{
+      transform:translateX(-100%)
+    }
+
+    100%{
+      transform:translateX(0)
+    }
+  }
+
+  @keyframes mesCompetencesMesQualitesActiveUlLI{
+    0%{
+      transform:translateX(-100%) scale(0.2);
+    }
+
+    50%{
+      transform:translateX(0) scale(0.5)
+    }
+
+    100%{
+      transform:translatX(0) scale(1)
+    }
+  }
+
+ 
+
+  @media screen and (max-width:773px){
+     .menuHamberger{
+        display:block;
+     }
+
+     /* nav ul{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        
+     } */
+
+     
+    .liste{
+      display:none;
+      
+      /* transform:translateY(-100%);
+      transition:transform 0.8s */
+    }
+     
+    .listActive{
+      /* transform:translateY(0); */
+      display:flex;
+        flex-direction:column;
+        align-items:center;
+        animation-name:listeQuiArrivent;
+        animation-duration:0.8s;
+        animation-fill-mode:forwards;
+        animation-timing-function:linear
+    }
+
+  .quiSuisJePhoto{
+    display:none;
+  }
+
+  .mainPrincipalActiveQuiSuisJe{
+    padding-top:50px;
+      justify-content: flex-start;
+  }
+
+  
+
+
+
+    /* @keyframes listeQuiArrivent{
+      0%{
+        transform:translateY(-100%)
+      }
+
+      100%{
+        transform:translateY(0)
+      }
+    } */
+
+    
+
+     .menuHambergerActive nav ul{
+      /* visibility:visible; */
+      display:flex;
+      flex-direction:column;
+
+     }
+
+
+  
+  }
+
+  /* @media screen and(max-width:536px){
+    .paragrapheHeader{
+      top:40%
+    }
+  } */
+
+
+
+  
